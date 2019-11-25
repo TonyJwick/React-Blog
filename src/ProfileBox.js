@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import './ProfileBox.css';
-import {Image} from 'react-native';
+import profile from './profile.jpg';
 import { Button, Badge,
     NavItem,
     NavLink,
@@ -13,52 +13,58 @@ class ProfileBox extends React.Component {
     constructor (props) {
         super(props);
         this.handleLoginClick = this.handleLoginClick.bind(this);
-        this.state = {isLoggedIn: false}
+        this.state = {isLoggedIn: false }
     }
 
     handleLoginClick() {
-            this.setState(isLoggedIn => ({
-                isLoggedIn: !this.state.isLoggedIn}));
-     }
+        this.setState(isLoggedIn => ({
+            isLoggedIn: !this.state.isLoggedIn}));
+   }
 
     render() {
         const isLoggedIn = this.state.isLoggedIn;
-        if(isLoggedIn) {
-            return(
-                    <Fragment>
-                        <div className="row">
-                        <NavItem className="col-4">
+        const profileText = (   <div className="col-4">
+                                <p className="padded">email</p>
+                                </div>
+                            );
+
+        return(
+             isLoggedIn ? (
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Welcome, xhslrkd!
+                  Welcome, {props.email}
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
                     My Page
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>
-         <Image source={require('../profile.png')} style={{width:100,height: 150}}/>
-                   Notification <Badge color="primary">3</Badge>
-                  </DropdownItem>
-
+                    <img src={profile} />
+                    {profileText}
                 </DropdownMenu>
-              </UncontrolledDropdown>
-                        </NavItem>
-                        </div>
-                    </Fragment>
-                );
-        } else {
-            return(
-                    <Fragment>
-                        <div className="row">
-                        <NavItem className="col-4">
-                            <Button className="btn btn-warning" onClick={this.handleLoginClick}>Login</Button>
-                        </NavItem>
-                        </div>
-                    </Fragment>
-                );
-        }
-    } 
+              < /UncontrolledDropdown>
+               ) : (
+
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Welcome, Guest!
+                </DropdownToggle>
+                <DropdownMenu right>
+                    <form onSubmit={this.handleLogginClick}>
+                      <label>
+                            Email:
+                        <input type="text" name="email" />
+                            Password:
+                       <input type="password" name="password"/>
+                      </label>
+
+
+                      <input type="submit" value="Submit" className="btn btn-primary" onClick={props.onClick}/>
+                    </form>
+                </DropdownMenu>
+              < /UncontrolledDropdown>
+        )
+            );
+    }
 }
 export default ProfileBox;
