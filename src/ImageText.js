@@ -9,10 +9,10 @@ class ImageText extends React.Component {
         return (
           <span>
             {this.props.text}
-            <img src={this.props.src} width={this.props.width} height={this.props.height} />
+            <img src={this.props.src} width={this.props.width} height={this.props.height} alt={this.props.alt}/>
              </span>
      );
-    }
+            }
 }
 
 export default ImageText;

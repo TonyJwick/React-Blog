@@ -1,0 +1,17 @@
+ .footer {
+     background-color: white;
+     position: relative;
+     max-height:50px;
+     width:100%;
+     justify-content: center;
+
+        
+ }
+
+ input {
+     margin-right: 20px;
+ }
+
+.col-4 {
+    border-left: 1px solid black;
+}

@@ -60,7 +60,7 @@ const Navigation = (props) => {
               <NavItem>
                 <NavLink href="https://www.linkedin.com/in/tonydongwookang/" target="_blank"><ImageText src={linkedin} width="30px" height="30px" /></NavLink>
               </NavItem>
-              <ProfileBox/>
+              <ProfileBox email="dongkang359@gmail.com"/>
               </Nav>
           </Collapse>
         </Navbar>

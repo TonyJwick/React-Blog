@@ -16,15 +16,17 @@ class ProfileBox extends React.Component {
         this.state = {isLoggedIn: false }
     }
 
-    handleLoginClick() {
+    handleLoginClick(email) {
         this.setState(isLoggedIn => ({
             isLoggedIn: !this.state.isLoggedIn}));
+
+
    }
 
     render() {
         const isLoggedIn = this.state.isLoggedIn;
         const profileText = (   <div className="col-4">
-                                <p className="padded">email</p>
+                                <p className="padded">{this.props.email}</p>
                                 </div>
                             );
 
@@ -32,7 +34,7 @@ class ProfileBox extends React.Component {
              isLoggedIn ? (
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Welcome, {props.email}
+                  Welcome, {this.props.email}
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
@@ -59,7 +61,7 @@ class ProfileBox extends React.Component {
                       </label>
 
 
-                      <input type="submit" value="Submit" className="btn btn-primary" onClick={props.onClick}/>
+                      <input type="submit" value="Submit" className="btn btn-primary" onClick={() => this.handleLoginclick}/>
                     </form>
                 </DropdownMenu>
               < /UncontrolledDropdown>
