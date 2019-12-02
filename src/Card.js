@@ -1,5 +1,7 @@
 import React from 'react';
-import github from './assets/github.png';
+import family from './assets/family.jpg';
+import symbol from './assets/location-pin.png';
+import ImageText from './ImageText';
 import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button
@@ -7,17 +9,16 @@ import {
 
 const card = (props) => {
     return (
-      <div>
         <Card>
-          <CardImg top src={github} alt="Card image cap" />
+          <CardImg top src={family} alt="Card image cap"/>
           <CardBody>
-            <CardTitle>Title</CardTitle>
-            <CardSubtitle>Location</CardSubtitle>
-            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-            <Button>Button</Button>
+            <CardTitle>Family Trip</CardTitle>
+            <CardSubtitle><ImageText src={symbol} width="15px" height="15px" />Malibu</CardSubtitle>
+            <CardText>2019/11/25 - 2019/11/27</CardText>
+            <CardText>Family Trip to Malibu</CardText>
+            <Button className="btn btn-warning">Explore</Button>
           </CardBody>
         </Card>
-      </div>
   );
 };
 

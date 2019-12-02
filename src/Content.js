@@ -11,14 +11,10 @@ class Content extends React.Component {
     }
     render() {
         return(
-        <div className="content-box">
-            <div className="container">
+        <div className="content-box row">
             <h1 className="title">{this.state.title}</h1>
-             <Alert color="primary">
-                {this.state.url}
+            <div className="container colunm-4">
                 <Container/>
-                <Card/>
-            </Alert>
             </div>
         </div>
             );

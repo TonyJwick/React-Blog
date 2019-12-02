@@ -1,5 +1,11 @@
-.CardImg {
-    width:100px;
-    height:100px;
-    background-color:black;
+.resize {
+
+    width:100%;
+    background-color:grey;
 }
+
+.row {
+    padding:30px;
+    justify-content:center;
+}
+

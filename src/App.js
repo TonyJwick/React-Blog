@@ -9,7 +9,9 @@ function App() {
       <header className="App-header">
         <Navigation/>
       </header>
+      <div className="home-container">
       <Content url="index.js" title="home"/>
+        </div>
     <Footer/>
     </div>
   );
